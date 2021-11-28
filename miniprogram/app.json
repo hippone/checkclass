@@ -1,0 +1,50 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/test/test",
+        "pages/top/top",
+        "pages/tool/tool",
+        "pages/info/info",
+        "pages/check/check",
+        "pages/success/success"
+    ],
+    "window": {
+        "backgroundColor": "#F6F6F6",
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#F6F6F6",
+        "navigationBarTitleText": "学生便民",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "color": "#000",
+        "selectedColor": "#328eeb",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "iconPath": "images/school.png",
+                "selectedIconPath": "images/school-blue.png",
+                "text": "校园"
+            },
+            {
+                "pagePath": "pages/tool/tool",
+                "iconPath": "images/tool.png",
+                "selectedIconPath": "images/tool-blue.png",
+                "text": "工具"
+            },
+            {
+                "pagePath": "pages/top/top",
+                "iconPath": "images/top.png",
+                "selectedIconPath": "images/top-blue.png",
+                "text": "top"
+            },
+            {
+                "pagePath": "pages/info/info",
+                "iconPath": "images/info.png",
+                "selectedIconPath": "images/info-blue.png",
+                "text": "个人"
+            }
+        ]
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json"
+}

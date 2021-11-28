@@ -1,0 +1,21 @@
+/* pages/check/check.wxss */
+input{
+    border: 3px solid rgb(124, 124, 124);
+}
+.bo{
+    display: -webkit-flex; 
+    display: flex;
+}
+.righ{
+    text-align: right;
+    flex-grow: 1;
+}
+.lef{
+    flex-grow:3;
+}
+.lef1{
+    font-weight:bold
+}
+.lef2{
+    color: rgba(141, 141, 136, 0.726);
+}

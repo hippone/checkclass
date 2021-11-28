@@ -1,0 +1,87 @@
+<!--pages/check/check.wxml-->
+<view class="page">
+
+<view class="weui-cells__title" wx:if="{{xianshi}}">你可以选择以下申请加入</view>
+<view class="weui-cells weui-cells_radio weui-cells_after-title">
+            <radio-group bindchange="juluchange">
+                <label class="weui-cell weui-check__label" wx:for="{{jilu}}" wx:key="_id">
+                    <view class="weui-cell__bd">
+                    <view class="bo">
+                        <view><view class="lef1">{{item.intro}}</view><view class="lef2">第{{item.week}}周周{{item.day}}第{{item.dijijie}}节课</view></view>
+                        <view class="righ">人数（{{item.reservations.qty}}/5）</view>
+                    </view>
+                    </view>
+                    <view class="weui-cell__ft">
+                        <radio
+                            class="weui-check"
+                            value="{{item._id}}"
+                        />
+                        <i class="weui-icon-checked"></i>
+                    </view>
+                </label>
+            </radio-group>
+        </view>
+<button class="weui-btn weui-btn_primary" wx:if="{{xianshi}}" bindtap="existed">大爷选这个就行了</button>
+
+<view class="weui-cells__title"  wx:if="{{meike==false}}">你可以提交一个预约</view>
+<view class="weui-cells__title"  wx:else>今天就这样算了吧</view>
+<view class="weui-cells weui-cells_after-title">
+    <label for="js_area" class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">用途</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <picker aria-role="combobox" id="js_area" bindchange="getIntro" value="{{usingIndex}}" range="{{using}}">
+                        <view class="weui-select weui-select_in-select-after">{{using[usingIndex]}}</view>
+                    </picker>
+                </view>
+    </label>
+</view>
+
+<view class="weui-cells__title" wx:if="{{meike==false}}">你能选这几个时间段</view>
+<view class="weui-cells__title" wx:elif="{{vacation}}">周末你可以随意</view>
+<view class="weui-cells__title" wx:else>今天满房了，下次早点来</view>
+<!--显示哪几节可以选-->
+<view class="weui-cells weui-cells_radio weui-cells_after-title">
+    <radio-group bindchange="timeChange" class="radio-check">
+        <label wx:if="{{sw1==true}}"  class="weui-cell weui-check__label">
+            <view class="weui-cell__bd">第1节</view>
+            <view class="weui-cell__ft">
+            <radio class="weui-check"  value="1"/>
+            <i class="weui-icon-checked"></i>
+            </view>
+        </label>
+        <label wx:if="{{sw2==true}}"  class="weui-cell weui-check__label">
+            <view class="weui-cell__bd">第2节</view>
+            <view class="weui-cell__ft">
+                <radio class="weui-check"  value="2"/>
+                <i class="weui-icon-checked"></i>
+            </view>
+        </label>
+        <label wx:if="{{xw1==true}}"  class="weui-cell weui-check__label">
+            <view class="weui-cell__bd">第3节</view>
+                <view class="weui-cell__ft">
+                <radio class="weui-check"  value="3"/>
+            <i class="weui-icon-checked"></i>
+        </view>
+        </label>
+        <label wx:if="{{xw2==true}}"  class="weui-cell weui-check__label">
+            <view class="weui-cell__bd">第4节</view>
+            <view class="weui-cell__ft">
+                <radio class="weui-check" value="4"/>
+                <i class="weui-icon-checked"></i>
+            </view>
+        </label>
+        <label wx:if="{{ws==true}}"  class="weui-cell weui-check__label">
+            <view class="weui-cell__bd">第5节</view>
+            <view class="weui-cell__ft">
+                <radio class="weui-check"  value="5"/>
+                <i class="weui-icon-checked"></i>
+            </view>
+        </label>
+    </radio-group>
+</view>
+<view class="buttonfor">
+<button class="weui-btn weui-btn_primary" bindtap="addbooking">大爷要选教室</button>
+</view>
+</view>

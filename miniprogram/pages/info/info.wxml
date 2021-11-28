@@ -1,0 +1,6 @@
+<button wx:if="{{!userInfo}}" bindtap="login">授权登录</button>
+<view wx:else class="root">
+<image class="touxiang" src="{{userInfo.avatarUrl}}"></image>
+<text class="nicheng">{{userInfo.nickName}}</text>
+<button bindtap="logout">退出</button>
+</view>

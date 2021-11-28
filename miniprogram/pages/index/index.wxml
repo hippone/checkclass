@@ -1,0 +1,80 @@
+<scroll-view scroll-x class="navbar" scroll-with-animation scroll-left="{{scrollLeft}}rpx" enable-flex="true">
+  <view class="nav-item" wx:for="{{tabs}}" wx:key="id" bindtap="tabSelect" data-id="{{index}}">
+    <view class="nav-text {{index==tabCur?'tab-on':''}}">{{item._id}}</view>
+  </view>
+</scroll-view>
+<view class="container">
+  <!-- 左边的  -->
+  <scroll-view class='nav_left' scroll-y='true'>
+    <block wx:for="{{lefts}}" wx:key="index">
+      <view class="nav_left_items {{leftCur==index?'active':''}}" bindtap="switchLeftTab" data-index='{{index}}'>
+        {{item._id}}</view>
+    </block>
+  </scroll-view>
+  <!-- 右边的 -->
+<scroll-view class="nav_right" scroll-y="true">
+  <!--判断第几节课  dijijieke 等于1说明是第一节课 查询数据库里 sw1 字段 表示上午第一节0表示没课，1表示有课-->
+    <view wx:if="{{dijijie == 1}}" class="{{topx}}" >  
+      <block wx:for="{{rights}}" wx:key="index">
+        <view class="nav_right_items" data-id="{{item._id}}" bindtap="GoToCheck" data-now="{{item.kebiao[0].sw1}}"   data-next="{{item.kebiao[0].sw2}}" data-week="{{dijizhou}}" data-day="{{zhouji}}">
+          <image wx:if="{{item.kebiao[0].sw1 == 0}}" src="/images/meiren.jpg"  ></image>
+          <image wx:elif="{{item.kebiao[0].sw1  == 1}}" src="/images/yourenle.jpg" ></image>
+          <image wx:else src="/images/meiren.jpg"  ></image>
+          <text>{{item.name}}</text>
+        </view>
+      </block>
+    </view>
+  <!--判断第几节课  dijijieke 等于2说明是第二节课 查询数据库里 sw2 字段 表示上午第二节0表示没课，1表示有课-->
+    <view wx:elif="{{dijijie == 2 }}" class="{{topx}}" >
+      <block wx:for="{{rights}}" wx:key="index">
+        <view class="nav_right_items" data-id="{{item._id}}" bindtap="GoToCheck" data-now="{{item.kebiao[0].sw2}}" data-next="{{item.kebiao[0].xw1}}" data-week="{{dijizhou}}" data-day="{{zhouji}}">
+        <!-- 判断sw2 有没有课-->
+          <image wx:if="{{item.kebiao[0].sw2 == 0}}" src="/images/meiren.jpg" ></image>
+          <image wx:elif="{{item.kebiao[0].sw2 == 1}}" src="/images/yourenle.jpg" ></image>
+          <image wx:else src="/images/meiren.jpg"  ></image>
+          <text>{{item.name}}</text>
+        </view>
+      </block>
+    </view>
+<!--判断第几节课  dijijieke 等于3说明是第三节课 查询数据库里 sw3 字段 表示上午第二节0表示没课，1表示有课-->
+    <view wx:elif="{{dijijie == 3}}" class="{{topx}}" >
+      <block wx:for="{{rights}}" wx:key="index">
+        <view class="nav_right_items" data-id="{{item._id}}" bindtap="GoToCheck" data-now="{{item.kebiao[0].xw1}}" data-next="{{item.kebiao[0].xw2}}" data-week="{{dijizhou}}" data-day="{{zhouji}}">
+          <image wx:if="{{item.kebiao[0].xw1 == '0'}}" src="/images/meiren.jpg"  ></image>
+          <image wx:elif="{{item.kebiao[0].xw1 == '1'}}" src="/images/yourenle.jpg" ></image>
+          <image wx:else src="/images/meiren.jpg"  ></image>
+          <text>{{item.name}}</text>
+        </view>
+      </block>
+    </view>
+    <view wx:elif="{{dijijie == 4}}" class="{{topx}}" >
+      <block wx:for="{{rights}}" wx:key="index">
+        <view class="nav_right_items" data-id="{{item._id}}" bindtap="GoToCheck" data-now="{{item.kebiao[0].xw2}}" data-next="{{item.kebiao[0].ws}}" data-week="{{dijizhou}}" data-day="{{zhouji}}">
+          <image wx:if="{{item.kebiao[0].xw2 == '0'}}" src="/images/meiren.jpg"  ></image>
+          <image wx:elif="{{item.kebiao[0].xw2 == '1'}}" src="/images/yourenle.jpg" ></image>
+          <image wx:else src="/images/meiren.jpg"  ></image>
+          <text>{{item.name}}</text>
+        </view>
+      </block>
+    </view>
+    <view wx:elif="{{dijijie == 5}}" class="{{topx}}" >
+      <block wx:for="{{rights}}" wx:key="index">
+        <view class="nav_right_items" data-id="{{item._id}}" bindtap="GoToCheck" data-now="{{item.kebiao[0].xw2}}" data-next="{{item.kebiao[0].ws}}" data-week="{{dijizhou}}" data-day="{{zhouji}}">
+          <image wx:if="{{item.kebiao[0].ws  == 0}}" src="/images/meiren.jpg"  ></image>
+          <image wx:elif="{{item.kebiao[0].ws  == 1}}" src="/images/yourenle.jpg" ></image>
+          <image wx:else src="/images/meiren.jpg"  ></image>
+          <text>{{item.name}}</text>
+        </view>
+      </block>
+    </view>
+    <view wx:else class="{{topx}}" >
+      <block wx:for="{{rights}}" wx:key="index">
+        <view class="nav_right_items" data-id="{{item._id}}" bindtap="GoToCheck" data-now="null" data-next="null" data-week="{{dijizhou}}" data-day="{{zhouji}}">
+          <image  src="/images/meiren.jpg" ></image>
+          <text>{{item.name}}</text>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+
+</view>

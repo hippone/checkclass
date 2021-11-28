@@ -1,4 +1,4 @@
-# mini-program check class
+# mini-program booking classroom
 这是我的综合实践设计模块，预约教室模块
 使用 微信开发工具+微信云开发
 主要是数据库比较难设计，本人以前没有接触过小程序，从零开始探索，加上云开发又是没接触过的json数据库
